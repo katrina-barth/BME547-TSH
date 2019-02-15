@@ -57,30 +57,38 @@ def Diagnose_TSH(TSH_Individual):
     TSH_vals = []
     for x in TSH_Individual:
         TSH_vals.append(float(x))
-    if max(TSH_vals) >= 4.0:
+    if max(TSH_vals) > 4.0:
         Diag = "hyperthyroidism"
-    elif min(TSH_vals) <= 1.0:
+    elif min(TSH_vals) < 1.0:
         Diag = 'hypothyroidism'
     else:
         Diag = 'normal thyroid function'
     return Diag
 
-
-def main():
+def Write_Patient_Files():
     data_list = Read_File()
     FN = FirstName(data_list)
     LN = LastName(data_list)
     A = Age(data_list)
     S = Sex(data_list)
     T = TSH(data_list)
-    # print(data_list)
-    # print(int((len(data_list)-1)/5))
-    # print(FN)
-    # print(LN)
-    # print(A)
-    # print(S)
-    # print(T)
-    print(Diagnose_TSH(Split_TSH(T, 2)))
+    import json
+    for i in range(len(FN)):
+        patient_result = {
+                    "Name": FN[i] + LN[i],
+                    "Age": A[i],
+                    "Sex": S[i],
+                    "Diagnosis": Diagnose_TSH(Split_TSH(T, i)),
+                    "TSH Results": Split_TSH(T, i),
+                    }
+        filename = str(FN[i]) + "-" + str(LN[i])
+        out_file = open(filename + ".json", "w")
+        json.dump(patient_result, out_file)
+        out_file.close()
+
+
+def main():
+    Write_Patient_Files()
 
 
 if __name__ == "__main__":
