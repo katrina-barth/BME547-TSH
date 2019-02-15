@@ -53,13 +53,13 @@ def main():
     A = Age(data_list)
     S = Sex(data_list)
     T = TSH(data_list)
-    # print(data_list)
-    print(int((len(data_list)-1)/5))
-    print(FN)
-    print(LN)
-    print(A)
-    print(S)
-    print(TSH)
+    print(data_list)
+    #print(int((len(data_list)-1)/5))
+    #print(FN)
+    #print(LN)
+    #print(A)
+    #print(S)
+    print(T)
 
 
 if __name__ == "__main__":
