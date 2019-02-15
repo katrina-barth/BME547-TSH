@@ -46,6 +46,13 @@ def TSH(patients):
     return TSH
 
 
+def Split_TSH(TSH,n):  # Function to extract individual patient's TSH data
+    TSH_Individual = []
+    TSH_Individual = TSH[n].split(",")
+    TSH_Individual = TSH_Individual[1:]
+    return TSH_Individual
+
+
 def main():
     data_list = Read_File()
     FN = FirstName(data_list)
@@ -60,6 +67,7 @@ def main():
     # print(A)
     # print(S)
     # print(T)
+    print(Split_TSH(T,2))
 
 
 if __name__ == "__main__":
