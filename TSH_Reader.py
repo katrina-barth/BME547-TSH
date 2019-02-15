@@ -53,6 +53,19 @@ def Split_TSH(TSH, n):  # Function to extract individual patient's TSH data
     return TSH_Individual
 
 
+def Diagnose_TSH(TSH_Individual):
+    TSH_vals = []
+    for x in TSH_Individual:
+        TSH_vals.append(float(x))
+    if max(TSH_vals) >= 4.0:
+        Diag = "hyperthyroidism"
+    elif min(TSH_vals) <= 1.0:
+        Diag = 'hypothyroidism'
+    else:
+        Diag = 'normal thyroid function'
+    return Diag
+
+
 def main():
     data_list = Read_File()
     FN = FirstName(data_list)
@@ -67,7 +80,7 @@ def main():
     # print(A)
     # print(S)
     # print(T)
-    print(Split_TSH(T, 2))
+    print(Diagnose_TSH(Split_TSH(T, 2)))
 
 
 if __name__ == "__main__":
