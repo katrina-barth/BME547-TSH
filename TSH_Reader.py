@@ -65,6 +65,7 @@ def Diagnose_TSH(TSH_Individual):
         Diag = 'normal thyroid function'
     return Diag
 
+
 def Write_Patient_Files():
     data_list = Read_File()
     FN = FirstName(data_list)
