@@ -3,7 +3,7 @@
 # Reads in patient data and detects presence of hyper- or hypo- thyroidism
 
 
-def Read_File(): # Function to read in patient data file
+def Read_File():  # Function to read in patient data file
     f = open('test_data.txt', 'r')
     data = f.read()
     f.close()
@@ -11,7 +11,7 @@ def Read_File(): # Function to read in patient data file
     return data_list
 
 
-def FirstName(patients): # Function to extract patient first names
+def FirstName(patients):  # Function to extract patient first names
     FirstName = []
     for i in range(int((len(patients)-1)/5)):
         FirstName.append(patients[i*5])
@@ -53,13 +53,13 @@ def main():
     A = Age(data_list)
     S = Sex(data_list)
     T = TSH(data_list)
-    print(data_list)
-    #print(int((len(data_list)-1)/5))
-    #print(FN)
-    #print(LN)
-    #print(A)
-    #print(S)
-    print(T)
+    # print(data_list)
+    # print(int((len(data_list)-1)/5))
+    # print(FN)
+    # print(LN)
+    # print(A)
+    # print(S)
+    # print(T)
 
 
 if __name__ == "__main__":
